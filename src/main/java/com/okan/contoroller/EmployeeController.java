@@ -2,15 +2,23 @@ package com.okan.contoroller;
 
 import com.okan.bootstrap.DataGenerator;
 import com.okan.model.Employee;
+import com.okan.service.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping
 public class EmployeeController {
+
+    private EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     @GetMapping("employee")
     public String createEmployee(Model model){
@@ -21,7 +29,9 @@ public class EmployeeController {
         return "employee/employee-create";
     }
     @PostMapping("/insert")
-    public String insertEmployee(){
+    public String insertEmployee(@ModelAttribute("employee") Employee employee){
 
+    employeeService.saveEmployee(employee);
+    return "employee/employee-list";
     }
 }
