@@ -11,7 +11,6 @@
     <title>Employee Register</title>
 </head>
 <body>
-
 <div class="container">
     <div class="d-flex justify-content-center">
         <div class="card">
@@ -19,7 +18,7 @@
                 Welcome to Employee Registration Page
             </h2>
             <div class="card-body">
-                <form th:object="${employee}" th:action="@{/employee/insert}" method="post">
+                <form th:object="${employee}" th:action="@{/insert}" method="post">
                     <div class="form-row">
                         <div class="form-group col">
                             <label for="inputFirstName4">First Name</label>

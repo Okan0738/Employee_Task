@@ -49,6 +49,7 @@ public class DataGenerator {
                 "SouthDakota",
                 "Tennessee",
                 "Texas",
+                "Türkiye",
                 "Utah",
                 "Virginia",
                 "Vermont",

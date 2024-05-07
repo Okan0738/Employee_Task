@@ -29,9 +29,16 @@ public class EmployeeController {
         return "employee/employee-create";
     }
     @PostMapping("/insert")
-    public String insertEmployee(@ModelAttribute("employee") Employee employee){
+    public String insertEmployee(@ModelAttribute("employee") Employee employee, Model model){
+        employeeService.saveEmployee(employee);
+        model.addAttribute("employeeList", employeeService.readAllEmployees());
 
-    employeeService.saveEmployee(employee);
     return "employee/employee-list";
+
+    }
+    @GetMapping("/list")
+    public String listEmployee(Model model){
+        model.addAttribute("employeeList", employeeService.readAllEmployees());
+        return "employee/employee-list";
     }
 }

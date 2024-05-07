@@ -6,14 +6,20 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class Employee {
-    private String firstName;
+
+    @NotBlank
+    private String firstName ;
     private String lastName;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
     private String email;
